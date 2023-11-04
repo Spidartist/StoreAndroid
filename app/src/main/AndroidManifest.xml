@@ -13,16 +13,13 @@
         android:theme="@style/Theme.ListExamples"
         tools:targetApi="31">
         <activity
-            android:name=".RVEmailActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".RVMainActivity"
+            android:exported="false" />
         <activity
-            android:name=".EmailRVActivity"
+            android:name=".StoreActivity"
+            android:exported="true" />
+        <activity
+            android:name=".RVEmailActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
