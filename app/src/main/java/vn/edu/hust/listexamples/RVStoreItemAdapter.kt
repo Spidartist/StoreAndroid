@@ -9,30 +9,18 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class RVStoreItemAdapter(
-    val items: ArrayList<OneApp>,
-    val listener: ItemClickListener?
+    val items: ArrayList<OneApp>
 ) : RecyclerView.Adapter<RVStoreItemAdapter.RVItemViewHolder>() {
-    class RVItemViewHolder(val itemView: View, val listener: ItemClickListener?): RecyclerView.ViewHolder(itemView) {
+    class RVItemViewHolder(val itemView: View): RecyclerView.ViewHolder(itemView) {
         val imageThumb = itemView.findViewById<ImageView>(R.id.image_thumb)
         val appName = itemView.findViewById<TextView>(R.id.app_name)
         val rating = itemView.findViewById<TextView>(R.id.rating)
-
-        init {
-            itemView.setOnClickListener {
-                listener?.ItemClick(adapterPosition)
-            }
-        }
-    }
-
-
-    interface ItemClickListener {
-        fun ItemClick(position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVItemViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.store_single_item, parent, false)
 
-        return RVItemViewHolder(itemView, listener)
+        return RVItemViewHolder(itemView)
     }
 
     override fun getItemCount(): Int {

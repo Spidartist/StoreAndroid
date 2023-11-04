@@ -1,13 +1,11 @@
 package vn.edu.hust.listexamples
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class StoreActivity : AppCompatActivity(), RVStoreItemAdapter.ItemClickListener {
+class StoreActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_store)
@@ -21,15 +19,22 @@ class StoreActivity : AppCompatActivity(), RVStoreItemAdapter.ItemClickListener 
             ))
         }
 
-        val adapter = RVStoreItemAdapter(items, this)
+        val rows = arrayListOf<OneRow>()
+        repeat(4) {
+            val index = it + 1
+            rows.add(OneRow(
+                "Apps $index",
+                items
+            ))
+        }
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        recyclerView.adapter = adapter
+        val rvRow = findViewById<RecyclerView>(R.id.rvRow)
 
+        val menuAdapter = RVStoreMenuAdapter(rows, this)
+        val manager = LinearLayoutManager(this)
+
+        rvRow.layoutManager = manager
+        rvRow.adapter = menuAdapter
     }
 
-    override fun ItemClick(position: Int) {
-        Log.v("TAG", "Selected position: $position")
-    }
 }
