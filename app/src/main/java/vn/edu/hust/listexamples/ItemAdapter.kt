@@ -29,7 +29,7 @@ class ItemAdapter(val items: ArrayList<ItemModel>): BaseAdapter() {
 
         if (convertView == null) {
             itemView = LayoutInflater.from(parent?.context)
-                .inflate(R.layout.layout_single_item, parent, false)
+                .inflate(R.layout.layout_email_single_item, parent, false)
 
             itemViewHolder = ItemViewHolder(itemView)
             itemView.tag = itemViewHolder
