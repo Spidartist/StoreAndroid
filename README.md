@@ -1,3 +1,3 @@
-# EmailAndroid
+# StoreAndroid
 
-Run Activity "EmailActivity"
+Run Activity "StoreActivity"
