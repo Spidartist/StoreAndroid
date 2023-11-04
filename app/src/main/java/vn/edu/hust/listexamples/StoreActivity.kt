@@ -20,7 +20,7 @@ class StoreActivity : AppCompatActivity() {
         }
 
         val rows = arrayListOf<OneRow>()
-        repeat(4) {
+        repeat(8) {
             val index = it + 1
             rows.add(OneRow(
                 "Apps $index",
